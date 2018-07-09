@@ -13,7 +13,7 @@ public  class ExampleApp extends Application{
         Latte.init(this)
                 .withIcons(new FontAwesomeModule())
                 .withIcons(new FontEcModule())
-                .withApiHost("http://127.0.0.1")
+                .withApiHost("http://127.0.0.1/")
                 .Configure();
 
     }
