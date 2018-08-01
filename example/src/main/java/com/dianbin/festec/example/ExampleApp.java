@@ -14,7 +14,6 @@ public  class ExampleApp extends Application{
         Latte.init(this)
                 .withIcons(new FontAwesomeModule())
                 .withIcons(new FontEcModule())
-
                 .withApiHost("http://127.0.0.1/")
                 .withInterceptor(new DebugInterceptor("index",R.raw.test))
                 .Configure();
