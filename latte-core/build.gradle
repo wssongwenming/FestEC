@@ -62,5 +62,10 @@ dependencies {
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
     //JSON依赖
     compile 'com.alibaba:fastjson:1.2.31'
+    //Log依赖
+    compile 'com.orhanobut:logger:1.15'
+    //数据库依赖
+    compile 'org.greenrobot:greendao-generator:3.2.0'
+    compile 'org.greenrobot:greendao:3.2.0'
 
 }
