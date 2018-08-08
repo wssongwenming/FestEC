@@ -9,6 +9,7 @@ import com.dianbin.latte.activities.ProxyActivity;
 import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.ec.launcher.LauncherDelegate;
 import com.dianbin.latte.ec.launcher.LauncherScrollDelegate;
+import com.dianbin.latte.ec.sign.SignUpDelegate;
 
 public  class ExampleActivity extends ProxyActivity {
 
@@ -25,7 +26,8 @@ public  class ExampleActivity extends ProxyActivity {
     @Override
     public LatteDelegate setRootDelegate() {
         //return new ExampleDelegate();
-        return  new LauncherDelegate();
+        //return  new LauncherDelegate();
         //return new LauncherScrollDelegate();
+        return new SignUpDelegate();
     }
 }
