@@ -55,6 +55,7 @@ public class SignUpDelegate extends LatteDelegate {
                         @Override
                         public void onSuccess(String response) {
                             LatteLogger.json("USER_PROFILE",response);
+                            SignHandler.onSignUp(response);
                         }
                     })
                    .build()
