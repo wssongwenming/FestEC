@@ -1,0 +1,11 @@
+{
+  "code":0,
+  "message":"OK",
+  "data":{
+    "userId":1,
+    "name":"猿猿",
+    "avatar":"http://www.baidu.com",
+    "gender":"男",
+    "address":"山西"
+  }
+}

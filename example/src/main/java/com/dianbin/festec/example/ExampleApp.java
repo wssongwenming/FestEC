@@ -18,9 +18,12 @@ public  class ExampleApp extends Application{
                 .withIcons(new FontAwesomeModule())
                 .withIcons(new FontEcModule())
                 .withApiHost("http://127.0.0.1/")
-                .withInterceptor(new DebugInterceptor("index",R.raw.test))
+                //.withInterceptor(new DebugInterceptor("index",R.raw.test))
+                .withInterceptor(new DebugInterceptor("index",R.raw.profile))
                 .Configure();
+        //facebook的一个工具，可以把原生的数据映射到web上展现出来，
         initStetho();
+        //利用GreenDAO初始化数据库
         DatabaseManager.getInstance().init(this);
     }
     private void initStetho(){

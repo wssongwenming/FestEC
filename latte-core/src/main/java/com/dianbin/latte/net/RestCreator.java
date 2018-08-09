@@ -29,8 +29,10 @@ public class RestCreator {
         private static final String BASE_URL= (String) Latte.getConfigurations().get(ConfigKeys.API_HOST);
         private static final Retrofit RETROFIT_CLIENT= new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .client(OKhttpHolder.OK_HTTP_CLIENT)//Retrofit默认调用了OKhttp，所以可以不用
+                .client(OKhttpHolder.OK_HTTP_CLIENT)
+                //增加返回原始的的json
                 .addConverterFactory(ScalarsConverterFactory.create())
+                //增加返回值为Oservable<T>的支持
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }

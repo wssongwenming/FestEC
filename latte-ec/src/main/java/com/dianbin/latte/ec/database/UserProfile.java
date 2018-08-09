@@ -3,9 +3,19 @@ package com.dianbin.latte.ec.database;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
-
+/*本代码初始代码如下，其他为编译时greendao自动生成
+@Entity(nameInDb="user_profile")
+   public class UserProfile {
+    @Id
+    private long userId=0;
+    private String name=null;
+    private String avatar=null;
+    private String gender=null;
+    private String address=null;
+* */
 @Entity(nameInDb="user_profile")
 public class UserProfile {
+    //Id为唯一id，不能为int只能为long
     @Id
     private long userId=0;
     private String name=null;

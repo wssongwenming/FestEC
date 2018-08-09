@@ -7,8 +7,8 @@ import org.greenrobot.greendao.database.Database;
 public class DatabaseManager {
     private DaoSession mDaoSession=null;
     private UserProfileDao mDao=null;
-    private DatabaseManager(){
 
+    private DatabaseManager(){
     }
     public DatabaseManager init(Context context)
     {

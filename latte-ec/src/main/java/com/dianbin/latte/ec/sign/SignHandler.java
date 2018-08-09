@@ -15,7 +15,7 @@ public class SignHandler {
         final String gender=profileJson.getString("gender");
         final String address=profileJson.getString("address");
         final UserProfile profile=new UserProfile(userId,name,avatar,gender,address);
-
+        //数据库在APP开始时已经初始化，这时可以调用
         DatabaseManager.getInstance().getDao().insert(profile);
     }
 }
