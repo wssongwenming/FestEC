@@ -13,7 +13,7 @@ public class LauncherHolder implements Holder<Integer> {
         mImageView=new AppCompatImageView(context);
         return mImageView;
     }
-
+    //每次滑动时需要更新的图片，这里为了满屏，没有用mImageView的src
     @Override
     public void UpdateUI(Context context, int i, Integer data) {
         mImageView.setBackgroundResource(data);

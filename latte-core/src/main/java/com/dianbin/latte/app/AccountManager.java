@@ -17,9 +17,9 @@ public class AccountManager {
     }
     public static void checkAccount(IUserChecker checker){
         if(isSignIn())
-        {
+        {//如果已经登录了，
             checker.onSignIn();
-        }else {
+        }else {//执行没有登录的回调
             checker.onNotSignIn();
         }
     }

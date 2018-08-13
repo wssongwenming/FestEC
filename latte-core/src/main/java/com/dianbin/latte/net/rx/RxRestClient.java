@@ -43,7 +43,7 @@ public class RxRestClient {
         return new RxRestClientBuilder();
     }
     private Observable<String> request(HttpMethod method){
-        final RxRestService service=RestCreator.getRxRestService();
+        final RxRestService rxRestService=RestCreator.getRxRestService();
         Observable<String>  observable=null;
         if(LOADER_STYLE!=null)
         {
@@ -51,21 +51,21 @@ public class RxRestClient {
         }
         switch (method){
             case GET:
-                observable=service.get(URL,PARAMS);
+                observable=rxRestService.get(URL,PARAMS);
                 break;
             case POST:
-                observable=service.post(URL,PARAMS);
+                observable=rxRestService.post(URL,PARAMS);
                 break;
             case POST_RAW:
-                observable=service.postRaw(URL,BODY);
+                observable=rxRestService.postRaw(URL,BODY);
                 break;
             case PUT_RAW:
-                observable=service.putRaw(URL,BODY);
+                observable=rxRestService.putRaw(URL,BODY);
             case PUT:
-                observable=service.put(URL,PARAMS);
+                observable=rxRestService.put(URL,PARAMS);
                 break;
             case DELETE:
-                observable=service.delete(URL,PARAMS);
+                observable=rxRestService.delete(URL,PARAMS);
                 break;
             case UPLOAD:
                 RequestBody requestBody=

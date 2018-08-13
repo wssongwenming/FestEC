@@ -55,12 +55,12 @@ public class SignUpDelegate extends LatteDelegate {
                         @Override
                         public void onSuccess(String response) {
                             LatteLogger.json("USER_PROFILE",response);
-                            SignHandler.onSignUp(response);
+                            SignHandler.onSignUp(response,mISignListener);
                         }
                     })
                    .build()
                    .post();
-            Toast.makeText(this.getContext(),"验证通过",Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this.getContext(),"验证通过",Toast.LENGTH_SHORT).show();
         }
     }
     @OnClick(R2.id.tv_link_sign_in)
@@ -81,21 +81,18 @@ public class SignUpDelegate extends LatteDelegate {
         } else {
             mName.setError(null);
         }
-
         if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             mEmail.setError("错误的邮箱格式");
             isPass = false;
         } else {
             mEmail.setError(null);
         }
-
         if (phone.isEmpty() || phone.length() != 11) {
             mPhone.setError("手机号码错误");
             isPass = false;
         } else {
             mPhone.setError(null);
         }
-
         if (password.isEmpty() || password.length() < 6) {
             mPassword.setError("请填写至少6位数密码");
             isPass = false;
@@ -109,9 +106,7 @@ public class SignUpDelegate extends LatteDelegate {
         } else {
             mRePassword.setError(null);
         }
-
         return isPass;
-
     }
     @Override
     public Object setLayout() {
