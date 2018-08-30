@@ -7,5 +7,5 @@ import com.dianbin.latte.wechat.templates.WXEntryTemplate;
         packageName = "com.dianbin.festec.example",
         entryTemplete = WXEntryTemplate.class
 )
-public class WeChatEntry {
+public interface WeChatEntry {
 }
