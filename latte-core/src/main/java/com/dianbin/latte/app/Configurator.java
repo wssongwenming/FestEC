@@ -1,5 +1,7 @@
 package com.dianbin.latte.app;
 
+import android.app.Activity;
+
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
@@ -80,5 +82,20 @@ public class Configurator {
            // throw new NullPointerException(key.toString() + " IS NULL");
         }
         return (T) LATTE_CONFIG.get(key);
+    }
+    public final Configurator withWeChatAppId(String appId)
+    {
+        LATTE_CONFIG.put(ConfigKeys.WE_CHAT_APP_ID,appId);
+        return this;
+    }
+    public final Configurator withWeChatAppSecret(String appSecret)
+    {
+        LATTE_CONFIG.put(ConfigKeys.WE_CHAT_APP_SECRET,appSecret);
+        return this;
+    }
+    public final Configurator withActivity(Activity activity)
+    {
+        LATTE_CONFIG.put(ConfigKeys.ACTIVITY,activity);
+        return this;
     }
 }

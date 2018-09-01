@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBar;
 import android.widget.Toast;
 
 import com.dianbin.latte.activities.ProxyActivity;
+import com.dianbin.latte.app.Latte;
 import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.ec.launcher.LauncherDelegate;
 import com.dianbin.latte.ec.launcher.LauncherScrollDelegate;
@@ -27,6 +28,7 @@ public  class ExampleActivity extends ProxyActivity implements
         {
             actionBar.hide();
         }
+        Latte.getConfigurator().withActivity(this);
     }
 
     @Override
