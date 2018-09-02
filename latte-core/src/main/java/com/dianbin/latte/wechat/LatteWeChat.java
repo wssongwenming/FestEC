@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.dianbin.latte.app.ConfigKeys;
 import com.dianbin.latte.app.Latte;
+import com.dianbin.latte.wechat.callbacks.IWeChatSignInCallback;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -13,6 +14,7 @@ public class LatteWeChat {
     static final String APP_ID= Latte.getConfiguration(ConfigKeys.WE_CHAT_APP_ID);
     static final String APP_SECRET=Latte.getConfiguration(ConfigKeys.WE_CHAT_APP_SECRET);
     private final IWXAPI WXAPI;
+    private IWeChatSignInCallback mSignInCallback=null;
     //LatteWeChat懒汉单例模式
     private static final class Holder{
         private static final LatteWeChat INSTANCE=new LatteWeChat();
@@ -28,6 +30,16 @@ public class LatteWeChat {
     public final IWXAPI getWXAPI(){
         return WXAPI;
     }
+
+    public LatteWeChat onSignSuccess(IWeChatSignInCallback callback){
+        this.mSignInCallback=callback;
+        return this;
+    }
+
+    public IWeChatSignInCallback getSignInCallback() {
+        return mSignInCallback;
+    }
+
     public final void signIn(){
         final SendAuth.Req req=new SendAuth.Req();
         //威信规定的字符串开发

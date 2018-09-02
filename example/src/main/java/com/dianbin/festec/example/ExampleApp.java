@@ -20,6 +20,8 @@ public  class ExampleApp extends Application{
                 .withApiHost("http://127.0.0.1/")
                 //.withInterceptor(new DebugInterceptor("index",R.raw.test))
                 .withInterceptor(new DebugInterceptor("index",R.raw.profile))
+                .withWeChatAppId("")//微信登陆初始化AppId
+                .withWeChatAppSecret("")//微信登陆人传入Secret
                 .Configure();
         //facebook的一个工具，可以把原生的数据映射到web上展现出来，
         initStetho();
