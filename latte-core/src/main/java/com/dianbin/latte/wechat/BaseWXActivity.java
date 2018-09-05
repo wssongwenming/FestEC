@@ -14,7 +14,7 @@ public abstract class BaseWXActivity extends AppCompatActivity implements IWXAPI
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //这个必须写在onCreate中
+        //这个必须写在onCreate中， 如果没回调onResp，八成是这句没有写
         LatteWeChat.getInstancee().getWXAPI().handleIntent(getIntent(),this);
     }
 

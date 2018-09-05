@@ -57,12 +57,13 @@ public class SignInDelegate extends LatteDelegate {
     }
     @OnClick(R2.id.icon_sign_in_wechat)
     void onClickWeChat(){
+
         LatteWeChat.
                 getInstancee().
                 onSignSuccess(new IWeChatSignInCallback() {
                    @Override
                    public void onSignInSuccess(String userInfo) {
-
+                       Toast.makeText(getContext(),userInfo,Toast.LENGTH_LONG).show();
                    }
                 })
                 .signIn();

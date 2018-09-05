@@ -11,6 +11,7 @@ public class WXEntryTemplate  extends BaseWXEntryActivity {
     protected void onResume() {
         super.onResume();
         finish();
+        //0
         overridePendingTransition(0,0);
     }
 

@@ -39,12 +39,13 @@ public class LatteWeChat {
     public IWeChatSignInCallback getSignInCallback() {
         return mSignInCallback;
     }
-
+    //点击“微信登陆”按钮调用
     public final void signIn(){
         final SendAuth.Req req=new SendAuth.Req();
         //威信规定的字符串开发
         req.scope="snsapi_userinfo";
         req.state="random_state";
+        //向微信共用开发平台发起请求，一旦有结果返回就会回调
         WXAPI.sendReq(req);
     }
 }

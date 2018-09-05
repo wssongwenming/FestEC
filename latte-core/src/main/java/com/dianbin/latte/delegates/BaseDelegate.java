@@ -31,6 +31,7 @@ public abstract class BaseDelegate extends SwipeBackFragment{
             throw new ClassCastException("setLayout() type must be int or view");
         }
         if(rootView!=null){
+            //在子类中就进行绑定
             mUnbinder= ButterKnife.bind(this,rootView);
             onBindView(savedInstanceState,rootView);
         }
