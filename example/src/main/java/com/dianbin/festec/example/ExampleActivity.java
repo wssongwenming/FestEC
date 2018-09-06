@@ -11,6 +11,7 @@ import com.dianbin.latte.app.Latte;
 import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.ec.launcher.LauncherDelegate;
 import com.dianbin.latte.ec.launcher.LauncherScrollDelegate;
+import com.dianbin.latte.ec.main.EcBottomDelegate;
 import com.dianbin.latte.ec.sign.ISignListener;
 import com.dianbin.latte.ec.sign.SignInDelegate;
 import com.dianbin.latte.ec.sign.SignUpDelegate;
@@ -54,11 +55,13 @@ public  class ExampleActivity extends ProxyActivity implements
         switch (tag){
             case SIGNED:
                 Toast.makeText(this, "启动结束用户已登陆", Toast.LENGTH_SHORT).show();
-                startWithPop(new ExampleDelegate());
+                //startWithPop(new ExampleDelegate());
+                startWithPop(new EcBottomDelegate());
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this, "启动结束用户未登陆", Toast.LENGTH_SHORT).show();
                 startWithPop(new SignInDelegate());
+
                 break;
             default:
                 break;

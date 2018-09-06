@@ -72,8 +72,6 @@
                     android:inputType="textPassword"
                     tools:ignore="HardcodedText" />
             </android.support.design.widget.TextInputLayout>
-密码
-
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btn_sign_in"
                 android:layout_width="match_parent"
