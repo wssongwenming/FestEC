@@ -37,8 +37,8 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
         return R.layout.delegate_bottom;
     }
 
-
-    public abstract LinkedHashMap<BottomTabBean,BottomItemDelegate>setItems(ItemBuilder builder);
+    //思路，建立父类的抽象方法就是为了在子类中赋值，setItems是起始源头，setItems->ITEMS
+    public abstract LinkedHashMap<BottomTabBean,BottomItemDelegate> setItems(ItemBuilder builder);
 
     public abstract  int setIndexDelegate();
     @ColorInt
@@ -110,9 +110,8 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
         itemIcon.setTextColor(mClickedColor);
         final AppCompatTextView itemTitle=(AppCompatTextView)item.getChildAt(1);
         itemTitle.setTextColor(mClickedColor);
-        //注意前后顺序
+        //show一个Fragment,hide一个Fragment ; 主要用于类似微信主页那种 切换tab的情况
         showHideFragment(ITEM_DELEGATES.get(tag),ITEM_DELEGATES.get(mCurrentDelegate));
-
         mCurrentDelegate=tag;
     }
 }
