@@ -1,6 +1,7 @@
 package com.dianbin.latte.app;
 
 import android.app.Activity;
+import android.os.Handler;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
@@ -9,14 +10,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.WeakHashMap;
 
+
 import okhttp3.Interceptor;
 
-public class Configurator {
+public final class Configurator {
     private static final HashMap<Object,Object> LATTE_CONFIG=new HashMap<>();
+    private static final Handler HANDLER=new Handler();
     private static final ArrayList<IconFontDescriptor> ICONS=new ArrayList();
     private static final ArrayList<Interceptor> INTERCEPTORS=new ArrayList<>();
     private Configurator(){
         LATTE_CONFIG.put(ConfigKeys.CONFIG_READY,false);
+        LATTE_CONFIG.put(ConfigKeys.HANDLER,HANDLER);
     }
     private static final class Holder{
         private static final Configurator INSTANCE=new Configurator();

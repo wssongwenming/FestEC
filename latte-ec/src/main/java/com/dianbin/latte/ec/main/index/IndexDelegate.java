@@ -11,6 +11,7 @@ import android.view.View;
 import com.dianbin.latte.delegates.bottom.BottomItemDelegate;
 import com.dianbin.latte.ec.R;
 import com.dianbin.latte.ec.R2;
+import com.dianbin.latte.ui.refresh.RefreshHandler;
 import com.joanzapata.iconify.widget.IconTextView;
 
 import butterknife.BindView;
@@ -26,13 +27,35 @@ public class IndexDelegate extends BottomItemDelegate {
     IconTextView mIconScan=null;
     @BindView(R2.id.et_search_view)
     AppCompatEditText mSearchView=null;
+    private RefreshHandler mRefreshHandler=null;
+
+    @Override
+    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
+        //把mRefreshLayout的刷新交给另外的函数，秉承类的代码尽量少，类可以多点”
+        mRefreshHandler=new RefreshHandler(mRefreshLayout);
+    }
+
+    private void initRefreshLayout(){
+        mRefreshLayout.setColorSchemeResources(
+                android.R.color.holo_blue_bright,
+                android.R.color.holo_red_light,
+                android.R.color.holo_red_light
+        );
+        //
+        mRefreshLayout.setProgressViewOffset(true,120,300);
+    }
+
+    @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
+        initRefreshLayout();
+        mRefreshHandler.firstPage("index");
+    }
+
     @Override
     public Object setLayout() {
         return R.layout.delegate_index;
     }
 
-    @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
 
-    }
 }
