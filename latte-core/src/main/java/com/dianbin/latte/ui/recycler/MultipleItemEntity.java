@@ -5,12 +5,21 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
 import java.util.LinkedHashMap;
+import java.util.WeakHashMap;
 
 public class MultipleItemEntity implements MultiItemEntity {
     private final ReferenceQueue<LinkedHashMap<Object,Object>> ITEM_QUEUE=new ReferenceQueue<>();
     private final LinkedHashMap<Object,Object> MULTIPLE_FIELDS=new LinkedHashMap<>();
     private final SoftReference<LinkedHashMap<Object,Object>> FIELDS_REFERENCE=
             new SoftReference<LinkedHashMap<Object, Object>>(MULTIPLE_FIELDS,ITEM_QUEUE);
+
+    public static  MultipleEntityBuilder builder(){
+        return new MultipleEntityBuilder();
+    }
+
+     MultipleItemEntity(LinkedHashMap<Object,Object> fields){
+        FIELDS_REFERENCE.get().putAll(fields);
+    }
 
     @Override
     public int getItemType() {

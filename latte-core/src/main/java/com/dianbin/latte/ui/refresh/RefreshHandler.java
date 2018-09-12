@@ -10,8 +10,8 @@ import com.dianbin.latte.net.callback.ISuccess;
 public class RefreshHandler implements SwipeRefreshLayout.OnRefreshListener {
     private final SwipeRefreshLayout REFESH_LAYOUT;
 
-    public RefreshHandler(SwipeRefreshLayout REFESH_LAYOUT){
-        this.REFESH_LAYOUT=REFESH_LAYOUT;
+    public RefreshHandler(SwipeRefreshLayout swipeRefreshLayout){
+        this.REFESH_LAYOUT=swipeRefreshLayout;
         REFESH_LAYOUT.setOnRefreshListener(this);
     }
 

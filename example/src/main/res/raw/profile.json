@@ -24,8 +24,7 @@
       "text":"测试描述2",
       "imageUrl":"http://ec4.images-amazon.com/images/I/61Y4mk8UpYL._SL1500_.jpg",
       "spanSize":2
-    }
-  ,
+    },
     {
       "goodsId":3,
       "text":"测试描述3",
@@ -34,7 +33,7 @@
     },
     {
       "goodsId":4,
-      "imageUrl":"http://img.yougou.com/pics/adidas/2012/21006606/21006606_03_mb.jpg"
+      "imageUrl":"http://img.yougou.com/pics/adidas/2012/21006606/21006606_03_mb.jpg",
       "spanSize":2
     },
     {
@@ -44,12 +43,12 @@
     },
     {
       "goodsId":6,
-      "imageUrl":"http://img.yougou.com/pics/adidas/2012/21006606/21006606_03_mb.jpg"
+      "imageUrl":"http://img.yougou.com/pics/adidas/2012/21006606/21006606_03_mb.jpg",
       "spanSize":2
     },
     {
       "goodsId":7,
-      "imageUrl":"http://img.yougou.com/pics/adidas/2012/21006606/21006606_03_mb.jpg"
+      "imageUrl":"http://img.yougou.com/pics/adidas/2012/21006606/21006606_03_mb.jpg",
       "spanSize":2
     }
   ]
