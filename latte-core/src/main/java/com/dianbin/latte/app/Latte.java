@@ -3,6 +3,9 @@ package com.dianbin.latte.app;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
+
+import com.dianbin.latte.R;
+
 import java.util.HashMap;
 import java.util.WeakHashMap;
 

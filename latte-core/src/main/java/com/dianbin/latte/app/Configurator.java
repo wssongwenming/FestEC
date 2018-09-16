@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.WeakHashMap;
 
 
+import freemarker.log.Logger;
 import okhttp3.Interceptor;
 
 public final class Configurator {

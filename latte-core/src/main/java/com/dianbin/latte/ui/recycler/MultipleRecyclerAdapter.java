@@ -8,6 +8,7 @@ import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dianbin.latte.R;
@@ -23,6 +24,12 @@ implements
     //recyclerview 的机制是滑动下来再滑动上去，就重新加载一次数据，这里确保只初始化一次Banner，防止重复Item加载
 
     private boolean mIsInitBanner=false;
+    //设置图片加载策略
+    private static final RequestOptions REQUEST_OPTIONS=
+            new RequestOptions()
+            .centerCrop()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .dontAnimate();
 
     protected MultipleRecyclerAdapter(List<MultipleItemEntity> data) {
         super(data);
@@ -69,9 +76,7 @@ implements
                 imageUrl=entity.getField(MultipleFields.IMAGE_URL);
                 Glide.with(mContext)
                         .load(imageUrl)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .dontAnimate()
-                        .centerCrop()
+                        .apply(REQUEST_OPTIONS)
                         .into((ImageView) holder.getView(R.id.img_single));
                 break;
             case ItemType.TEXT_IMAGE:
@@ -79,9 +84,7 @@ implements
                 imageUrl=entity.getField(MultipleFields.IMAGE_URL);
                 Glide.with(mContext)
                         .load(imageUrl)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .dontAnimate()
-                        .centerCrop()
+                        .apply(REQUEST_OPTIONS)
                         .into((ImageView) holder.getView(R.id.img_multiple));
                 holder.setText(R.id.tv_multiple,text);
                 break;

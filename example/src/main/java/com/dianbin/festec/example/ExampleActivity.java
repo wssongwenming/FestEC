@@ -17,6 +17,7 @@ import com.dianbin.latte.ec.sign.SignInDelegate;
 import com.dianbin.latte.ec.sign.SignUpDelegate;
 import com.dianbin.latte.ui.launcher.ILauncherListener;
 import com.dianbin.latte.ui.launcher.OnLauncherFinishTag;
+import com.dianbin.latte.util.collector.ActivityCollector;
 
 public  class ExampleActivity extends ProxyActivity implements
         ISignListener,ILauncherListener {
@@ -24,12 +25,20 @@ public  class ExampleActivity extends ProxyActivity implements
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //对Activity进行统一管理
+        ActivityCollector.addActivity(this);
+
         final ActionBar actionBar=getSupportActionBar();
         if(actionBar!=null)
         {
             actionBar.hide();
         }
         Latte.getConfigurator().withActivity(this);
+    }
+     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
     }
 
     @Override
