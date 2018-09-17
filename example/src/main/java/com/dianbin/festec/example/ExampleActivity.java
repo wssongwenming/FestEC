@@ -19,6 +19,8 @@ import com.dianbin.latte.ui.launcher.ILauncherListener;
 import com.dianbin.latte.ui.launcher.OnLauncherFinishTag;
 import com.dianbin.latte.util.collector.ActivityCollector;
 
+import qiu.niorgai.StatusBarCompat;
+
 public  class ExampleActivity extends ProxyActivity implements
         ISignListener,ILauncherListener {
 
@@ -34,6 +36,8 @@ public  class ExampleActivity extends ProxyActivity implements
             actionBar.hide();
         }
         Latte.getConfigurator().withActivity(this);
+        StatusBarCompat.translucentStatusBar(this,true);
+
     }
      @Override
     protected void onDestroy() {

@@ -19,7 +19,8 @@ public  class ExampleApp extends Application{
                 .withIcons(new FontEcModule())
                 .withApiHost("http://127.0.0.1/")
                 //.withInterceptor(new DebugInterceptor("index",R.raw.test))
-                .withInterceptor(new DebugInterceptor("index",R.raw.profile))
+                //.withInterceptor(new DebugInterceptor("index",R.raw.profile))
+                .withInterceptor(new DebugInterceptor("sort_list",R.raw.sort_list))
                 .withWeChatAppId("")//微信登陆初始化AppId
                 .withWeChatAppSecret("")//微信登陆人传入Secret
                 .Configure();

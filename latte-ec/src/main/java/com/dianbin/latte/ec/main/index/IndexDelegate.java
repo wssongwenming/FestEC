@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.dianbin.latte.delegates.bottom.BottomItemDelegate;
 import com.dianbin.latte.ec.R;
 import com.dianbin.latte.ec.R2;
+import com.dianbin.latte.ec.main.EcBottomDelegate;
 import com.dianbin.latte.net.RestClient;
 import com.dianbin.latte.net.callback.ISuccess;
 import com.dianbin.latte.ui.recycler.BaseDecoration;
@@ -75,6 +76,9 @@ public class IndexDelegate extends BottomItemDelegate {
         mRecylerView.setLayoutManager(manager);
         mRecylerView.addItemDecoration
                 (BaseDecoration.create(ContextCompat.getColor(getContext(),R.color.app_background),5));
+        final EcBottomDelegate ecBottomDelegate=getParentDelegate();
+        //单击跳转，显示每个项目的详情
+        mRecylerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
     }
 
     @Override
