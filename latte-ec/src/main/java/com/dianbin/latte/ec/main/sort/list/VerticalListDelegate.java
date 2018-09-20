@@ -9,6 +9,7 @@ import android.view.View;
 import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.ec.R;
 import com.dianbin.latte.ec.R2;
+import com.dianbin.latte.ec.main.sort.SortDelegate;
 import com.dianbin.latte.net.RestClient;
 import com.dianbin.latte.net.callback.ISuccess;
 import com.dianbin.latte.ui.recycler.MultipleItemEntity;
@@ -47,8 +48,12 @@ public class VerticalListDelegate extends LatteDelegate {
                     @Override
                     public void onSuccess(String response) {
                         final List<MultipleItemEntity> data=
-                                new VerticalListDataConverter()
-
+                                new VerticalListDataConverter().setJsonData(response).convert();
+                        final SortDelegate delegate=getParentDelegate();
+                        //为了在verticallistDelegate中点击跳转，所以必须吧，父delegate作为参数传给adapter，
+                        // 从而在SortRecyclerAdapter中可以利用父容器找到ContentDelegate
+                        final SortRecyclerAdapter adapter=new SortRecyclerAdapter(data,delegate);
+                        mRecyclerView.setAdapter(adapter);
                     }
                 })
                 .build()

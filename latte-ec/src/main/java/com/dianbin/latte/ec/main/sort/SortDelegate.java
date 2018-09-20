@@ -25,6 +25,7 @@ public class SortDelegate extends BottomItemDelegate {
 
         super.onLazyInitView(savedInstanceState);
         final VerticalListDelegate listDelegate=new VerticalListDelegate();
+        //R.id.vertical_list_container=Identifier of the container whose fragment(s) are to be replaced.
         loadRootFragment(R.id.vertical_list_container,listDelegate);
         replaceLoadRootFragment(R.id.sort_content_container, ContentDelegate.newInstance(1),false);
 

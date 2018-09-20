@@ -2,14 +2,21 @@ package com.dianbin.latte.ec.main.sort.content;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.ec.R;
+import com.dianbin.latte.ec.R2;
+
+import butterknife.BindView;
 
 public class ContentDelegate extends LatteDelegate{
     private static final String ARG_CONTENT_ID="CONTENT_ID";
     private int mContentId=-1;
+    @BindView(R2.id.rv_list_content)
+    RecyclerView mRecyclerView=null;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +38,12 @@ public class ContentDelegate extends LatteDelegate{
         return R.layout.delegate_list_content;
     }
 
+
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
+        final StaggeredGridLayoutManager manager=
+                new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(manager);
 
     }
 }
